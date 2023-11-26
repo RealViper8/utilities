@@ -125,6 +125,7 @@ fn cmd() {
             }
         }
 
+        
         match &*input.trim() {
             "help" | "?" => {
                 println!("\n\x1b[1;36mhelp:\x1b[0;32m");
@@ -132,7 +133,17 @@ fn cmd() {
                 println!("    cd                Change current working directory");
                 println!("    clear             Clear the terminal");
                 println!("    mkdir             Create a directory");
+                println!("    ls                List files");
                 println!("    exit              Exits with Code 0");
+                print!("\x1b[0m");
+            }
+            "ls" | "dir" => {
+                let paths = fs::read_dir("./").unwrap();
+                
+                print!("\x1b[0;32m\n");
+                for path in paths {
+                    println!("{}", path.unwrap().path().display().to_string().replace("./", ""));
+                }
                 print!("\x1b[0m");
             }
             "cd" => {
