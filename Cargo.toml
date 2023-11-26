@@ -1,0 +1,9 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base64 = "0.21.5"
+bcrypt = "0.15.0"
+configparser = "3.0.3"
