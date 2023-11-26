@@ -1,6 +1,5 @@
 pub mod menu;
 use std::{io::{self, Write}, process::Command, thread::park_timeout, time::Duration, os::unix::process::CommandExt};
-
 use base64::{self, engine::general_purpose, Engine};
 
 pub fn hash_password(password: String) -> String {
