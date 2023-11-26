@@ -88,7 +88,6 @@ fn cmd() {
     clear();
 
     println!("\n\x1b[0;36m--- Command Prompt ---\x1b[0;32m");
-    println!("     Made in Rust     ");
     let mut config = Ini::new();
     config.read(fs::read_to_string("config.ini").unwrap()).unwrap();
 
