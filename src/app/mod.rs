@@ -1,5 +1,5 @@
 pub mod menu;
-use std::{io::{self, Write}, process::Command, thread::park_timeout, time::Duration, os::unix::process::CommandExt};
+use std::{io::{self, Write}, process::Command, thread::park_timeout, time::Duration};
 use base64::{self, engine::general_purpose, Engine};
 
 pub fn hash_password(password: String) -> String {
@@ -36,9 +36,9 @@ pub fn sh() {
         io::stdin().read_line(&mut host).expect("failed to readline");
     }
     if cfg!(target_os = "macos") || cfg!(target_os = "linux") {
-        Command::new("ssh").arg(host.trim()).exec();
+        Command::new("ssh").arg(host.trim()).status().expect("failed to run");
     } else if cfg!(target_os = "windows") {
-        Command::new("ssh").arg(host.trim()).exec();
+        Command::new("ssh").arg(host.trim()).status().expect("failed to run");
     } else {
         println!("\n\x1b[0;31mYour os isnt supported !\x1b[0m");
         park_timeout(Duration::new(2, 0));

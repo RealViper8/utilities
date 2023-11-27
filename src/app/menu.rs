@@ -12,7 +12,7 @@ use configparser::ini::Ini;
 
 use crate::app;
 
-fn clear() {
+pub fn clear() {
     if cfg!(target_os = "macos") || cfg!(target_os = "linux") {
         Command::new("bash").args(["-c","clear"]).spawn().unwrap();
     } else if cfg!(target_os = "windows") {
