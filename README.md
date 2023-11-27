@@ -8,4 +8,4 @@ You open setup.bat if you are on windows.
 Or go in the repository and type make if your on linux.
 
 # License
-MIT License
+This project is under the MIT license.
